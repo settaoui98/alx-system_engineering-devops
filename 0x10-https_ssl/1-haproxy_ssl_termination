@@ -47,8 +47,6 @@ defaults
 	#bind *:443 ssl crt /etc/haproxy/certs/fullchain.pem
 	bind *:443 ssl crt /etc/ssl/www.yeroma.tech/www.yeroma.tech.pem
 	mode http
-	# Redirect if HTTPS is *not* used
-        redirect scheme https code 301 if !{ ssl_fc }
         default_backend back_server
    backend back_server
         balance      roundrobin
